@@ -7,14 +7,101 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#declarations"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#primitives"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.cue",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.cue",
+					"match": "\\b(if|in|for|let)\\b"
+				},
+				{
+					"name": "keyword.value.cue",
+					"match": "\\b(null|true|false)\\b"
+				},
+				{
+					"name": "keyword.preamble.cue",
+					"match": "\\b(package|import)\\b"
+				},
+				{
+					"name": "keyword.operator.cue",
+					"match": "\\b(div|mod|quo|rem)\\b"
+				}
+			]
+		},
+		"declarations": {
+			"patterns": [
+				{
+					"name": "support.type.property-name.cue",
+					"match": "(#\\w*)"
+				},
+				{
+					"name": "variable.parameter.cue",
+					"match": "(\\w*?):"
+				}
+			]
+		},
+		"comments": {
+            "patterns": [
+                {
+                    "begin": "/\\*\\*(?!/)",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.cue"
+                        }
+                    },
+                    "end": "\\*/",
+                    "name": "comment.block.documentation.cue"
+                },
+                {
+                    "begin": "/\\*",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.cue"
+                        }
+                    },
+                    "end": "\\*/",
+                    "name": "comment.block.cue"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.comment.cue"
+                        }
+                    },
+                    "match": "(//).*$\\n?",
+                    "name": "comment.line.double-slash.js"
+                }
+            ]
+        },
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b((0(x|X)[0-9a-fA-F_]*)|(([0-9][0-9_]*\\.[0-9][0-9_]*)|(\\.[0-9][0-9_]*))((e|E)(\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)([LlFfDd]|UL|ul)?\\b",
+					"name": "constant.numeric.cue"
+				}
+			]
+		},
+		"primitives": {
+			"patterns": [
+				{
+					"name": "storage.type.cue",
+					"match": "\\b(null|bool|string|bytes|number|int|float|struct|list)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.cue",
