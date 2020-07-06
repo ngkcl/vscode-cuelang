@@ -1,14 +1,20 @@
 {
     "name": "cuelang",
-    "displayName": "cuelang",
-    "description": "Cuelang",
+    "displayName": "Cuelang",
+    "description": "Cuelang Syntax Highlighting",
     "version": "0.0.1",
+    "publisher": "nickgo",
+    "author": {
+        "name": "Nick"
+    },
+    "icon": "./assets/cue.png",
     "engines": {
         "vscode": "^1.46.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "license": "See license in LICENSE.md",
     "contributes": {
         "languages": [{
             "id": "cue",
