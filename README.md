@@ -1,4 +1,4 @@
-![Cuelang](https://cuelang.org/images/cue.svg)
+![Cuelang](https://github.com/ngkcl/vscode-cuelang/blob/master/assets/cue.png)
 # Cuelang Syntax Highlighting for VSCode
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg)](http://opensource.org/licenses/MIT)
 ## Description
