@@ -3,6 +3,9 @@
 	"name": "Cue",
 	"patterns": [
 		{
+			"include": "#whitespace"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -37,8 +40,24 @@
 					"match": "\\b(package|import)\\b"
 				},
 				{
-					"name": "keyword.operator.cue",
-					"match": "\\b(div|mod|quo|rem)\\b"
+					"match": "[\\+\\-\\*]|/(?![/*])",
+					"name": "keyword.operator.cue"
+				},
+				{
+					"match": "(?<![\\p{L}\\p{Nd}_\\$\\#])(?:div|mod|quo|rem)(?![\\p{L}\\p{Nd}_\\$\\#])",
+					"name": "keyword.operator.word.cue"
+				},
+				{
+					"match": "=[=~]|![=~]|<=|>=|[<](?![-=])|[>](?![=])",
+					"name": "keyword.operator.comparison.cue"
+				},
+				{
+					"match": "&{2}|\\|{2}|!(?![=~])",
+					"name": "keyword.operator.logical.cue"
+				},
+				{
+					"match": "&(?!&)|\\|(?!\\|)",
+					"name": "keyword.operator.set.cue"
 				}
 			]
 		},
@@ -90,6 +109,18 @@
 		"constants": {
 			"patterns": [
 				{
+					"match": "(?<![\\p{L}\\p{Nd}_\\$\\#])_(?!\\|)(?![\\p{L}\\p{Nd}_\\$\\#])",
+					"name": "constant.language.top.cue"
+				},
+				{
+					"match": "(?<![\\p{L}\\p{Nd}_\\$\\#])_\\|_(?![\\p{L}\\p{Nd}_\\$\\#])",
+					"name": "constant.language.bottom.cue"
+				},
+				{
+					"match": "(?<![\\p{L}\\p{Nd}_\\$\\#])null(?![\\p{L}\\p{Nd}_\\$\\#])",
+					"name": "constant.language.null.cue"
+				},
+				{
 					"match": "\\b((0(x|X)[0-9a-fA-F_]*)|(([0-9][0-9_]*\\.[0-9][0-9_]*)|(\\.[0-9][0-9_]*))((e|E)(\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)([LlFfDd]|UL|ul)?\\b",
 					"name": "constant.numeric.cue"
 				}
@@ -113,6 +144,9 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"whitespace": {
+			"match": "[ \\t\\r\\n]+"
 		}
 	},
 	"scopeName": "source.cuelang"
