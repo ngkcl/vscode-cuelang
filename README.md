@@ -4,6 +4,12 @@
 ## Description
 Provides simple syntax highlighting for Cuelang configuration files. Uses standard TextMate pattern matching. Must fit with any color theme
 
+## Install
+
+```shell
+ext install cuelang
+```
+
 ## Contribute
 
 Looking for people to help on additional Cuelang feature support. For more info read CONTRIBUTE.md
